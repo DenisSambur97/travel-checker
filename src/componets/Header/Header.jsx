@@ -37,6 +37,7 @@ const Header = ({setCoordinates}) => {
                         </div>
                     </Autocomplete>
                 </Box>
+                
             </Toolbar>
         </AppBar>
     )

@@ -32,14 +32,16 @@ const App = () => {
 
     // Получаем данные про местные заведения
     useEffect(() => {
-        setIsLoading(true)
+        if(bounds.sw && bounds.ne){
+            setIsLoading(true)
 
-        getPlacesData(type, bounds.sw, bounds.ne)
-            .then((data) => {
-                setPlaces(data.filter((place) => place.name && place.num_reviews > 0))
-                setFilteredPlaces([])
-                setIsLoading(false)
-            })
+            getPlacesData(type, bounds.sw, bounds.ne)
+                .then((data) => {
+                    setPlaces(data?.filter((place) => place.name && place.num_reviews > 0))
+                    setFilteredPlaces([])
+                    setIsLoading(false)
+                })
+        }
     }, [type, coordinates, bounds])
 
     return (

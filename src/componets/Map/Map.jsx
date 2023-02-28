@@ -5,20 +5,25 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import Rating from '@material-ui/lab/Rating'
 
 import useStyle from './styles'
+import mapStyle from "./mapStyle";
 
-const Map = ({setCoordinates, setBounds, coordinates, bounds, places, setChildClicked}) => {
+const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) => {
     const classes = useStyle()
     const isDesktop = useMediaQuery('(min-width:600px)') //adaptive
 
     return (
         <div className={classes.mapContainer}>
             <GoogleMapReact
-                bootstrapURLKeys={{key: 'AIzaSyB0QhCVI_T68vDuwz2gL1Bmu1GoYTbnASo'}} //API key Google Maps from https://console.cloud.google.com/apis/credentials/
+                bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}} //API key Google Maps from https://console.cloud.google.com/apis/credentials/
                 defaultCenter={coordinates}
                 center={coordinates}
                 defaultZoom={14}
                 margin={[50, 50, 50, 50]}
-                options={''}
+                options={{
+                    disableDefaultUI: true,
+                    zoomControl: true,
+                    styles: mapStyle
+                }}
                 onChange={(event) => {
                     setCoordinates({lat: event.center.lat, lng: event.center.lng})
                     setBounds({ ne: event.marginBounds.ne, sw: event.marginBounds.sw})
