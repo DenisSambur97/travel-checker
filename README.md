@@ -2,6 +2,8 @@
 
 Приложение для путешествий, в котором можно посмотреть на карте куда можно пойти в определённом городе который вы посетили. Есть возможность посмотреть отели, рестораны и достопримечательности / Travel application where you can see on the map where you can go in a certain city that you have visited. It is possible to see hotels, restaurants and attractions
 
+Добавил Google API Key в .env, поэтому данные на карте не отображаются - [link](https://travel-checker.vercel.app/) В случае необходимости могу открыть доступ.
+
 **Какие task's решались:**
 - Получение данных из API(Google API + RapidAPI с списками заведений для карты)
 - Отрисовка полученных данных на карте(динамически) и списке
