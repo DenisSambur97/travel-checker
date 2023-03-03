@@ -24,6 +24,7 @@
 1. Создать папку для проекта, например advisor
 2. cd advisor
 3. git clone https://github.com/DenisSambur97/travel-checker.git
+
 **Как запустить проект(в консоли):**
 ```bash
 npm run dev 
